@@ -1,4 +1,5 @@
 import logo from "../images/logo/logo.png";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -13,11 +14,25 @@ function Navbar() {
       </div>
 
       <ul className="nav-links">
-        <li>Home</li>
-        <li>Learn</li>
-        <li>Explorer</li>
-        <li>AI Tutor</li>
-        <li>Quiz</li>
+        <li>
+          <NavLink to="/">Home</NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/learn">Learn</NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/explorer">Explorer</NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/aitutor">AI Tutor</NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/quiz">Quiz</NavLink>
+        </li>
       </ul>
     </nav>
   );
