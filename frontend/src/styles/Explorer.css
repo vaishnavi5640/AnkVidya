@@ -1,0 +1,84 @@
+.explorer-page{
+    max-width:1100px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+.explorer-page h1{
+    text-align:center;
+    color:#1E3A8A;
+    font-size:48px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#555;
+    font-size:20px;
+    margin-bottom:40px;
+}
+
+.number-input{
+    width:100%;
+    padding:18px;
+    font-size:20px;
+    border:2px solid #ddd;
+    border-radius:12px;
+    outline:none;
+    transition:0.3s;
+}
+
+.number-input:focus{
+    border-color:#FF6B00;
+}
+
+.cards{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:16px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h2{
+    color:#1E3A8A;
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.card p{
+    font-size:22px;
+    color:#333;
+    line-height:1.6;
+}
+
+@media(max-width:768px){
+
+.explorer-page h1{
+    font-size:36px;
+}
+
+.subtitle{
+    font-size:18px;
+}
+
+.number-input{
+    font-size:18px;
+}
+
+.cards{
+    grid-template-columns:1fr;
+}
+
+}

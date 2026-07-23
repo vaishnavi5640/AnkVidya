@@ -1,101 +1,112 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+import "../styles/Explorer.css";
 
 function Explorer() {
   const [number, setNumber] = useState("");
-  const [result, setResult] = useState("");
 
-  const convertIndianFormat = (num) => {
+  const formatIndian = (num) => {
+    if (!num) return "";
+
     const x = num.toString();
 
     if (x.length <= 3) return x;
 
-    const lastThree = x.substring(x.length - 3);
-    const otherNumbers = x.substring(0, x.length - 3);
+    const lastThree = x.slice(-3);
+    const other = x.slice(0, -3);
 
-    const formatted =
-      otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") +
+    return (
+      other.replace(/\B(?=(\d{2})+(?!\d))/g, ",") +
       "," +
-      lastThree;
-
-    return formatted;
+      lastThree
+    );
   };
 
-  const handleConvert = () => {
-    if (number === "") {
-      setResult("");
-      return;
-    }
+  const formatInternational = (num) => {
+    if (!num) return "";
+    return Number(num).toLocaleString("en-US");
+  };
 
-    setResult(convertIndianFormat(number));
+  const toDevanagari = (num) => {
+    const digits = {
+      "0": "०",
+      "1": "१",
+      "2": "२",
+      "3": "३",
+      "4": "४",
+      "5": "५",
+      "6": "६",
+      "7": "७",
+      "8": "८",
+      "9": "९",
+      ",": ","
+    };
+
+    return num
+      .toString()
+      .split("")
+      .map((d) => digits[d] || d)
+      .join("");
   };
 
   return (
     <>
       <Navbar />
 
-      <div
-        style={{
-          maxWidth: "700px",
-          margin: "60px auto",
-          textAlign: "center",
-        }}
-      >
+      <div className="explorer-page">
+
         <h1>🔢 Number Explorer</h1>
 
-        <p style={{ margin: "20px 0" }}>
-          Enter any number to see it in the Indian Number System.
+        <p className="subtitle">
+          Learn the Indian Number System interactively.
         </p>
 
         <input
+          className="number-input"
           type="number"
-          placeholder="Enter a number"
+          placeholder="Enter any number..."
           value={number}
           onChange={(e) => setNumber(e.target.value)}
-          style={{
-            padding: "15px",
-            width: "100%",
-            fontSize: "18px",
-            borderRadius: "10px",
-            border: "1px solid #ccc",
-          }}
         />
 
-        <br />
-        <br />
+        {number && (
+          <div className="cards">
 
-        <button
-          onClick={handleConvert}
-          style={{
-            padding: "15px 40px",
-            background: "#FF6B00",
-            color: "white",
-            border: "none",
-            borderRadius: "10px",
-            cursor: "pointer",
-            fontSize: "18px",
-          }}
-        >
-          Convert
-        </button>
+            <div className="card">
+              <h2>🌍 International Format</h2>
+              <p>{formatInternational(number)}</p>
+            </div>
 
-        {result && (
-          <div
-            style={{
-              marginTop: "40px",
-              padding: "25px",
-              background: "white",
-              borderRadius: "15px",
-              boxShadow: "0 5px 15px rgba(0,0,0,.1)",
-            }}
-          >
-            <h2>Indian Number Format</h2>
+            <div className="card">
+              <h2>🇮🇳 Indian Format</h2>
+              <p>{formatIndian(number)}</p>
+            </div>
 
-            <h1 style={{ color: "#1E3A8A", marginTop: "15px" }}>
-              {result}
-            </h1>
+            <div className="card">
+              <h2>📝 Devanagari Numerals</h2>
+              <p>{toDevanagari(number)}</p>
+            </div>
+
+            <div className="card">
+              <h2>🏛 Ancient Numerals</h2>
+              <p>
+                Brahmi numeral support will be added in the next version.
+              </p>
+            </div>
+
+            <div className="card">
+              <h2>💡 Did You Know?</h2>
+              <p>
+                The Indian Number System uses the grouping
+                <strong> 3-2-2 </strong>
+                while the International System uses
+                <strong> 3-3-3.</strong>
+              </p>
+            </div>
+
           </div>
         )}
+
       </div>
     </>
   );
