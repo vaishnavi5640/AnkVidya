@@ -1,0 +1,52 @@
+.learn-page{
+    padding:60px;
+    background:#FFF8E7;
+    min-height:100vh;
+}
+
+.learn-page h1{
+    text-align:center;
+    color:#1E3A8A;
+    font-size:46px;
+}
+
+.intro{
+    text-align:center;
+    margin-top:20px;
+    font-size:20px;
+    color:#555;
+}
+
+.timeline{
+    margin-top:50px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.timeline-card{
+    background:white;
+    border-left:6px solid #FF6B00;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.timeline-card:hover{
+    transform:translateY(-8px);
+}
+
+.timeline-card h2{
+    color:#FF6B00;
+    margin-bottom:10px;
+}
+
+.timeline-card h3{
+    color:#1E3A8A;
+    margin-bottom:10px;
+}
+
+.timeline-card p{
+    line-height:1.6;
+}
