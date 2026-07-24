@@ -1,39 +1,34 @@
-import logo from "../images/logo/logo.png";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 function Navbar() {
   return (
     <nav className="navbar">
-      <div className="brand">
-        <img src={logo} alt="AnkVidya Logo" className="logo-image" />
 
-        <div className="brand-text">
-          <h2 className="logo">AnkVidya</h2>
-          <p className="tagline">Ancient Knowledge • Modern Learning</p>
-        </div>
+      <div className="logo">
+        AnkVidya
       </div>
 
-      <ul className="nav-links">
+      <ul>
+
         <li>
-          <NavLink to="/">Home</NavLink>
+          <Link to="/">Home</Link>
         </li>
 
         <li>
-          <NavLink to="/learn">Learn</NavLink>
+          <Link to="/learn">Learn</Link>
         </li>
 
         <li>
-          <NavLink to="/explorer">Explorer</NavLink>
+          <Link to="/explorer">Explorer</Link>
         </li>
 
         <li>
-          <NavLink to="/aitutor">AI Tutor</NavLink>
+          <Link to="/mathematicians">Mathematicians</Link>
         </li>
 
-        <li>
-          <NavLink to="/quiz">Quiz</NavLink>
-        </li>
       </ul>
+
     </nav>
   );
 }

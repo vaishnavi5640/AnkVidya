@@ -3,8 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Learn from "./pages/Learn";
 import Explorer from "./pages/Explorer";
-import AITutor from "./pages/AITutor";
-import Quiz from "./pages/Quiz";
+import Mathematicians from "./pages/Mathematicians";
 
 function App() {
   return (
@@ -13,8 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/learn" element={<Learn />} />
         <Route path="/explorer" element={<Explorer />} />
-        <Route path="/aitutor" element={<AITutor />} />
-        <Route path="/quiz" element={<Quiz />} />
+        <Route path="/mathematicians" element={<Mathematicians />} />
       </Routes>
     </BrowserRouter>
   );
