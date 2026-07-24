@@ -11,14 +11,16 @@
 
 .logo {
   color: white;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
 }
 
 .navbar ul {
   display: flex;
-  gap: 30px;
   list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar ul li a {
@@ -38,14 +40,17 @@
     padding: 20px;
   }
 
+  .logo {
+    margin-bottom: 15px;
+  }
+
   .navbar ul {
-    margin-top: 15px;
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
   }
 
-  .logo {
-    margin-bottom: 10px;
+  .navbar ul li a {
+    font-size: 16px;
   }
 }

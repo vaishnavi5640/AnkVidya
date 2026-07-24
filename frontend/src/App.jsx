@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Learn from "./pages/Learn";
 import Explorer from "./pages/Explorer";
 import Mathematicians from "./pages/Mathematicians";
+import Quiz from "./pages/Quiz";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/learn" element={<Learn />} />
         <Route path="/explorer" element={<Explorer />} />
         <Route path="/mathematicians" element={<Mathematicians />} />
+        <Route path="/quiz" element={<Quiz />} />
       </Routes>
     </BrowserRouter>
   );
