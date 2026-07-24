@@ -5,6 +5,7 @@ import "../styles/Explorer.css";
 function Explorer() {
   const [number, setNumber] = useState("");
 
+  // Indian Number Format
   const formatIndian = (num) => {
     if (!num) return "";
 
@@ -22,11 +23,13 @@ function Explorer() {
     );
   };
 
+  // International Number Format
   const formatInternational = (num) => {
     if (!num) return "";
     return Number(num).toLocaleString("en-US");
   };
 
+  // Devanagari Numerals
   const toDevanagari = (num) => {
     const digits = {
       "0": "०",
@@ -39,14 +42,102 @@ function Explorer() {
       "7": "७",
       "8": "८",
       "9": "९",
-      ",": ","
+      ",": ",",
     };
 
     return num
       .toString()
       .split("")
-      .map((d) => digits[d] || d)
+      .map((digit) => digits[digit] || digit)
       .join("");
+  };
+
+  // Number to Words (Indian System)
+  const numberToWords = (num) => {
+    if (!num) return "";
+
+    const ones = [
+      "",
+      "One",
+      "Two",
+      "Three",
+      "Four",
+      "Five",
+      "Six",
+      "Seven",
+      "Eight",
+      "Nine",
+      "Ten",
+      "Eleven",
+      "Twelve",
+      "Thirteen",
+      "Fourteen",
+      "Fifteen",
+      "Sixteen",
+      "Seventeen",
+      "Eighteen",
+      "Nineteen",
+    ];
+
+    const tens = [
+      "",
+      "",
+      "Twenty",
+      "Thirty",
+      "Forty",
+      "Fifty",
+      "Sixty",
+      "Seventy",
+      "Eighty",
+      "Ninety",
+    ];
+
+    const convertBelow1000 = (n) => {
+      let str = "";
+
+      if (n >= 100) {
+        str += ones[Math.floor(n / 100)] + " Hundred ";
+        n %= 100;
+      }
+
+      if (n >= 20) {
+        str += tens[Math.floor(n / 10)] + " ";
+        n %= 10;
+      }
+
+      if (n > 0) {
+        str += ones[n] + " ";
+      }
+
+      return str.trim();
+    };
+
+    let number = parseInt(num);
+
+    if (number === 0) return "Zero";
+
+    let result = "";
+
+    const crore = Math.floor(number / 10000000);
+    number %= 10000000;
+
+    const lakh = Math.floor(number / 100000);
+    number %= 100000;
+
+    const thousand = Math.floor(number / 1000);
+    number %= 1000;
+
+    const remainder = number;
+
+    if (crore) result += convertBelow1000(crore) + " Crore ";
+
+    if (lakh) result += convertBelow1000(lakh) + " Lakh ";
+
+    if (thousand) result += convertBelow1000(thousand) + " Thousand ";
+
+    if (remainder) result += convertBelow1000(remainder);
+
+    return result.trim();
   };
 
   return (
@@ -54,11 +145,10 @@ function Explorer() {
       <Navbar />
 
       <div className="explorer-page">
-
         <h1>🔢 Number Explorer</h1>
 
         <p className="subtitle">
-          Learn the Indian Number System interactively.
+          Learn and compare different Indian numeral systems.
         </p>
 
         <input
@@ -73,40 +163,45 @@ function Explorer() {
           <div className="cards">
 
             <div className="card">
-              <h2>🌍 International Format</h2>
+              <h2>🌍 International Number Format</h2>
               <p>{formatInternational(number)}</p>
             </div>
 
             <div className="card">
-              <h2>🇮🇳 Indian Format</h2>
+              <h2>🇮🇳 Indian Number Format</h2>
               <p>{formatIndian(number)}</p>
             </div>
 
             <div className="card">
-              <h2>📝 Devanagari Numerals</h2>
+              <h2>📝 Number in Words</h2>
+              <p>{numberToWords(number)}</p>
+            </div>
+
+            <div className="card">
+              <h2>🕉️ Devanagari Numerals</h2>
               <p>{toDevanagari(number)}</p>
             </div>
 
             <div className="card">
               <h2>🏛 Ancient Numerals</h2>
               <p>
-                Brahmi numeral support will be added in the next version.
+                🚧 Coming Soon! Brahmi numeral conversion will be available
+                in the next version.
               </p>
             </div>
 
             <div className="card">
               <h2>💡 Did You Know?</h2>
               <p>
-                The Indian Number System uses the grouping
-                <strong> 3-2-2 </strong>
-                while the International System uses
-                <strong> 3-3-3.</strong>
+                The Indian Number System groups digits as
+                <strong> 3-2-2</strong>, using Thousand, Lakh and Crore,
+                while the International System groups digits as
+                <strong> 3-3-3</strong>.
               </p>
             </div>
 
           </div>
         )}
-
       </div>
     </>
   );
