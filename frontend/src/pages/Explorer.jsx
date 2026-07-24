@@ -42,41 +42,47 @@ function Explorer() {
       "7": "७",
       "8": "८",
       "9": "९",
-      ",": ",",
     };
 
     return num
       .toString()
       .split("")
-      .map((digit) => digits[digit] || digit)
+      .map((d) => digits[d] || d)
       .join("");
   };
 
-  // Number to Words (Indian System)
+  // Brahmi Numerals
+  const toBrahmi = (num) => {
+    const brahmi = {
+      "0": "𑁦",
+      "1": "𑁧",
+      "2": "𑁨",
+      "3": "𑁩",
+      "4": "𑁪",
+      "5": "𑁫",
+      "6": "𑁬",
+      "7": "𑁭",
+      "8": "𑁮",
+      "9": "𑁯",
+    };
+
+    return num
+      .toString()
+      .split("")
+      .map((d) => brahmi[d] || d)
+      .join(" ");
+  };
+
+  // Number to Words
   const numberToWords = (num) => {
     if (!num) return "";
 
     const ones = [
       "",
-      "One",
-      "Two",
-      "Three",
-      "Four",
-      "Five",
-      "Six",
-      "Seven",
-      "Eight",
-      "Nine",
-      "Ten",
-      "Eleven",
-      "Twelve",
-      "Thirteen",
-      "Fourteen",
-      "Fifteen",
-      "Sixteen",
-      "Seventeen",
-      "Eighteen",
-      "Nineteen",
+      "One","Two","Three","Four","Five",
+      "Six","Seven","Eight","Nine","Ten",
+      "Eleven","Twelve","Thirteen","Fourteen","Fifteen",
+      "Sixteen","Seventeen","Eighteen","Nineteen"
     ];
 
     const tens = [
@@ -89,7 +95,7 @@ function Explorer() {
       "Sixty",
       "Seventy",
       "Eighty",
-      "Ninety",
+      "Ninety"
     ];
 
     const convertBelow1000 = (n) => {
@@ -127,15 +133,17 @@ function Explorer() {
     const thousand = Math.floor(number / 1000);
     number %= 1000;
 
-    const remainder = number;
+    if (crore)
+      result += convertBelow1000(crore) + " Crore ";
 
-    if (crore) result += convertBelow1000(crore) + " Crore ";
+    if (lakh)
+      result += convertBelow1000(lakh) + " Lakh ";
 
-    if (lakh) result += convertBelow1000(lakh) + " Lakh ";
+    if (thousand)
+      result += convertBelow1000(thousand) + " Thousand ";
 
-    if (thousand) result += convertBelow1000(thousand) + " Thousand ";
-
-    if (remainder) result += convertBelow1000(remainder);
+    if (number)
+      result += convertBelow1000(number);
 
     return result.trim();
   };
@@ -148,7 +156,7 @@ function Explorer() {
         <h1>🔢 Number Explorer</h1>
 
         <p className="subtitle">
-          Learn and compare different Indian numeral systems.
+          Explore Indian, International and Ancient Numeral Systems
         </p>
 
         <input
@@ -183,19 +191,18 @@ function Explorer() {
             </div>
 
             <div className="card">
-              <h2>🏛 Ancient Numerals</h2>
-              <p>
-                🚧 Coming Soon! Brahmi numeral conversion will be available
-                in the next version.
-              </p>
+              <h2>🏛 Brahmi Numerals</h2>
+              <p>{toBrahmi(number)}</p>
             </div>
 
             <div className="card">
               <h2>💡 Did You Know?</h2>
+
               <p>
-                The Indian Number System groups digits as
-                <strong> 3-2-2</strong>, using Thousand, Lakh and Crore,
-                while the International System groups digits as
+                The Indian Number System uses the grouping
+                <strong> 3-2-2 </strong>
+                (Thousand → Lakh → Crore),
+                while the International System uses
                 <strong> 3-3-3</strong>.
               </p>
             </div>
