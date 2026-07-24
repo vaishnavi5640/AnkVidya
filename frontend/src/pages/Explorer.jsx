@@ -8,7 +8,6 @@ function Explorer() {
   // Indian Number Format
   const formatIndian = (num) => {
     if (!num) return "";
-
     const x = num.toString();
 
     if (x.length <= 3) return x;
@@ -23,13 +22,13 @@ function Explorer() {
     );
   };
 
-  // International Number Format
+  // International Format
   const formatInternational = (num) => {
     if (!num) return "";
     return Number(num).toLocaleString("en-US");
   };
 
-  // Devanagari Numerals
+  // Devanagari
   const toDevanagari = (num) => {
     const digits = {
       "0": "०",
@@ -51,9 +50,9 @@ function Explorer() {
       .join("");
   };
 
-  // Brahmi Numerals
+  // Brahmi
   const toBrahmi = (num) => {
-    const brahmi = {
+    const digits = {
       "0": "𑁦",
       "1": "𑁧",
       "2": "𑁨",
@@ -69,94 +68,35 @@ function Explorer() {
     return num
       .toString()
       .split("")
-      .map((d) => brahmi[d] || d)
+      .map((d) => digits[d] || d)
       .join(" ");
   };
 
-  // Number to Words
-  const numberToWords = (num) => {
-    if (!num) return "";
+  // Place Value
+  const getPlaceValue = (num) => {
+    const formatted = formatIndian(num);
+    const parts = formatted.split(",");
 
-    const ones = [
-      "",
-      "One","Two","Three","Four","Five",
-      "Six","Seven","Eight","Nine","Ten",
-      "Eleven","Twelve","Thirteen","Fourteen","Fifteen",
-      "Sixteen","Seventeen","Eighteen","Nineteen"
-    ];
-
-    const tens = [
-      "",
-      "",
-      "Twenty",
-      "Thirty",
-      "Forty",
-      "Fifty",
-      "Sixty",
-      "Seventy",
-      "Eighty",
-      "Ninety"
-    ];
-
-    const convertBelow1000 = (n) => {
-      let str = "";
-
-      if (n >= 100) {
-        str += ones[Math.floor(n / 100)] + " Hundred ";
-        n %= 100;
-      }
-
-      if (n >= 20) {
-        str += tens[Math.floor(n / 10)] + " ";
-        n %= 10;
-      }
-
-      if (n > 0) {
-        str += ones[n] + " ";
-      }
-
-      return str.trim();
+    return {
+      crore: parts.length === 4 ? parts[0] : "-",
+      lakh: parts.length >= 3 ? parts[parts.length - 3] : "-",
+      thousand: parts.length >= 2 ? parts[parts.length - 2] : "-",
+      units: parts[parts.length - 1],
     };
-
-    let number = parseInt(num);
-
-    if (number === 0) return "Zero";
-
-    let result = "";
-
-    const crore = Math.floor(number / 10000000);
-    number %= 10000000;
-
-    const lakh = Math.floor(number / 100000);
-    number %= 100000;
-
-    const thousand = Math.floor(number / 1000);
-    number %= 1000;
-
-    if (crore)
-      result += convertBelow1000(crore) + " Crore ";
-
-    if (lakh)
-      result += convertBelow1000(lakh) + " Lakh ";
-
-    if (thousand)
-      result += convertBelow1000(thousand) + " Thousand ";
-
-    if (number)
-      result += convertBelow1000(number);
-
-    return result.trim();
   };
+
+  const place = number ? getPlaceValue(number) : {};
 
   return (
     <>
       <Navbar />
 
       <div className="explorer-page">
+
         <h1>🔢 Number Explorer</h1>
 
         <p className="subtitle">
-          Explore Indian, International and Ancient Numeral Systems
+          Learn the Indian Number System interactively.
         </p>
 
         <input
@@ -168,47 +108,61 @@ function Explorer() {
         />
 
         {number && (
-          <div className="cards">
+          <>
+            <div className="cards">
 
-            <div className="card">
-              <h2>🌍 International Number Format</h2>
-              <p>{formatInternational(number)}</p>
+              <div className="card">
+                <h2>🌍 International Format</h2>
+                <p>{formatInternational(number)}</p>
+              </div>
+
+              <div className="card">
+                <h2>🇮🇳 Indian Format</h2>
+                <p>{formatIndian(number)}</p>
+              </div>
+
+              <div className="card">
+                <h2>🕉️ Devanagari</h2>
+                <p>{toDevanagari(number)}</p>
+              </div>
+
+              <div className="card">
+                <h2>🏛️ Brahmi</h2>
+                <p>{toBrahmi(number)}</p>
+              </div>
+
             </div>
 
-            <div className="card">
-              <h2>🇮🇳 Indian Number Format</h2>
-              <p>{formatIndian(number)}</p>
+            <div className="place-value-box">
+
+              <h2>📊 Indian Place Value Chart</h2>
+
+              <table>
+
+                <thead>
+                  <tr>
+                    <th>Crore</th>
+                    <th>Lakh</th>
+                    <th>Thousand</th>
+                    <th>Units</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>{place.crore}</td>
+                    <td>{place.lakh}</td>
+                    <td>{place.thousand}</td>
+                    <td>{place.units}</td>
+                  </tr>
+                </tbody>
+
+              </table>
+
             </div>
-
-            <div className="card">
-              <h2>📝 Number in Words</h2>
-              <p>{numberToWords(number)}</p>
-            </div>
-
-            <div className="card">
-              <h2>🕉️ Devanagari Numerals</h2>
-              <p>{toDevanagari(number)}</p>
-            </div>
-
-            <div className="card">
-              <h2>🏛 Brahmi Numerals</h2>
-              <p>{toBrahmi(number)}</p>
-            </div>
-
-            <div className="card">
-              <h2>💡 Did You Know?</h2>
-
-              <p>
-                The Indian Number System uses the grouping
-                <strong> 3-2-2 </strong>
-                (Thousand → Lakh → Crore),
-                while the International System uses
-                <strong> 3-3-3</strong>.
-              </p>
-            </div>
-
-          </div>
+          </>
         )}
+
       </div>
     </>
   );
