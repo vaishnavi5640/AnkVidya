@@ -39,6 +39,7 @@ function Quiz() {
   const [current, setCurrent] = useState(0);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
+  const [name, setName] = useState("");
 
   const handleAnswer = (option) => {
     if (option === questions[current].answer) {
@@ -89,8 +90,7 @@ function Quiz() {
 
             {score === 5 && (
               <p className="excellent">
-                🌟 Excellent! You have mastered the basics of the Indian
-                Number System.
+                🌟 Excellent! You have mastered the basics of the Indian Number System.
               </p>
             )}
 
@@ -106,12 +106,41 @@ function Quiz() {
               </p>
             )}
 
+            <input
+              type="text"
+              className="name-input"
+              placeholder="Enter your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+
+            {name && (
+              <div className="certificate">
+                <h2>🏆 Certificate of Achievement</h2>
+
+                <p>This certifies that</p>
+
+                <h1>{name}</h1>
+
+                <p>has successfully completed</p>
+
+                <h2>ANKVIDYA QUIZ</h2>
+
+                <p>
+                  Score: {score} / {questions.length}
+                </p>
+
+                <p>Date: {new Date().toLocaleDateString()}</p>
+              </div>
+            )}
+
             <button
               className="restart-btn"
               onClick={() => {
                 setCurrent(0);
                 setScore(0);
                 setFinished(false);
+                setName("");
               }}
             >
               Restart Quiz

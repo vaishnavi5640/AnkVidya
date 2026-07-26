@@ -1,0 +1,80 @@
+.ai-page {
+  min-height: 100vh;
+  background: #f8f9fc;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.ai-page h1 {
+  font-size: 48px;
+  color: #1e3a8a;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.ai-page input {
+  width: 60%;
+  max-width: 600px;
+  padding: 15px;
+  font-size: 18px;
+  border: 2px solid #1e3a8a;
+  border-radius: 10px;
+  outline: none;
+}
+
+.ai-page button {
+  margin-left: 15px;
+  padding: 15px 25px;
+  font-size: 18px;
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ai-page button:hover {
+  background: #ff6b00;
+}
+
+.answer-box {
+  max-width: 800px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.answer-box h2 {
+  color: #1e3a8a;
+  margin-bottom: 15px;
+}
+
+.answer-box p {
+  color: #333;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .ai-page input {
+    width: 90%;
+    margin-bottom: 15px;
+  }
+
+  .ai-page button {
+    margin-left: 0;
+    width: 90%;
+  }
+
+  .ai-page h1 {
+    font-size: 36px;
+  }
+}

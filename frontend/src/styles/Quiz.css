@@ -1,61 +1,140 @@
 .quiz-container {
-  max-width: 800px;
-  margin: auto;
+  min-height: 100vh;
+  background: #f8f9fc;
   padding: 50px 20px;
+  text-align: center;
 }
 
 .quiz-container h1 {
-  text-align: center;
   color: #1e3a8a;
+  font-size: 42px;
+  margin-bottom: 20px;
 }
 
 .progress {
-  text-align: center;
-  margin: 20px 0;
   font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 25px;
 }
 
-.quiz-card {
+.quiz-card,
+.result-card {
+  max-width: 800px;
+  margin: auto;
   background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,.1);
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .quiz-card h2 {
-  margin-bottom: 25px;
+  color: #222;      /* Fixed question color */
+  font-size: 32px;
+  margin-bottom: 30px;
+  line-height: 1.5;
 }
 
 .option-btn {
   width: 100%;
-  padding: 15px;
-  margin: 10px 0;
+  padding: 18px;
+  margin: 15px 0;
   border: none;
+  border-radius: 12px;
   background: #1e3a8a;
   color: white;
-  border-radius: 10px;
+  font-size: 24px;
   cursor: pointer;
-  font-size: 18px;
+  transition: 0.3s;
 }
 
 .option-btn:hover {
   background: #ff6b00;
+  transform: scale(1.02);
 }
 
-.result-card {
-  text-align: center;
-  background: white;
-  padding: 40px;
+.result-card h1 {
+  color: #1e3a8a;
+}
+
+.result-card h2 {
+  color: #333;
+}
+
+.excellent {
+  color: green;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.good {
+  color: #ff9800;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.retry {
+  color: red;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.name-input {
+  width: 320px;
+  padding: 12px;
+  margin: 25px 0;
+  border: 2px solid #1e3a8a;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.certificate {
+  margin-top: 30px;
+  padding: 30px;
+  border: 4px solid gold;
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,.1);
+  background: #fffbe8;
+}
+
+.certificate h1 {
+  color: #1e3a8a;
+  margin: 15px 0;
+}
+
+.certificate h2 {
+  color: #ff6b00;
+}
+
+.certificate p {
+  font-size: 18px;
+  color: #333;
 }
 
 .restart-btn {
-  margin-top: 20px;
+  margin-top: 25px;
   padding: 15px 30px;
   border: none;
-  background: #ff6b00;
-  color: white;
   border-radius: 10px;
+  background: #1e3a8a;
+  color: white;
+  font-size: 20px;
   cursor: pointer;
+}
+
+.restart-btn:hover {
+  background: #ff6b00;
+}
+
+@media (max-width: 768px) {
+  .quiz-card h2 {
+    font-size: 24px;
+  }
+
+  .option-btn {
+    font-size: 18px;
+  }
+
+  .name-input {
+    width: 90%;
+  }
 }
