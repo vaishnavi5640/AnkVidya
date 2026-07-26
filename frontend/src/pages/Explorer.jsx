@@ -5,9 +5,9 @@ import "../styles/Explorer.css";
 function Explorer() {
   const [number, setNumber] = useState("");
 
-  // Indian Number Format
   const formatIndian = (num) => {
     if (!num) return "";
+
     const x = num.toString();
 
     if (x.length <= 3) return x;
@@ -15,20 +15,14 @@ function Explorer() {
     const lastThree = x.slice(-3);
     const other = x.slice(0, -3);
 
-    return (
-      other.replace(/\B(?=(\d{2})+(?!\d))/g, ",") +
-      "," +
-      lastThree
-    );
+    return other.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + "," + lastThree;
   };
 
-  // International Format
   const formatInternational = (num) => {
     if (!num) return "";
     return Number(num).toLocaleString("en-US");
   };
 
-  // Devanagari
   const toDevanagari = (num) => {
     const digits = {
       "0": "०",
@@ -50,7 +44,6 @@ function Explorer() {
       .join("");
   };
 
-  // Brahmi
   const toBrahmi = (num) => {
     const digits = {
       "0": "𑁦",
@@ -72,7 +65,6 @@ function Explorer() {
       .join(" ");
   };
 
-  // Place Value
   const getPlaceValue = (num) => {
     const formatted = formatIndian(num);
     const parts = formatted.split(",");
@@ -92,7 +84,6 @@ function Explorer() {
       <Navbar />
 
       <div className="explorer-page">
-
         <h1>🔢 Number Explorer</h1>
 
         <p className="subtitle">
@@ -110,35 +101,31 @@ function Explorer() {
         {number && (
           <>
             <div className="cards">
-
               <div className="card">
                 <h2>🌍 International Format</h2>
                 <p>{formatInternational(number)}</p>
               </div>
 
               <div className="card">
-                <h2>🇮🇳 Indian Format</h2>
+                <h2>🇮🇳 Indian Number Format</h2>
                 <p>{formatIndian(number)}</p>
               </div>
 
               <div className="card">
-                <h2>🕉️ Devanagari</h2>
+                <h2>🕉️ Devanagari Numerals</h2>
                 <p>{toDevanagari(number)}</p>
               </div>
 
               <div className="card">
-                <h2>🏛️ Brahmi</h2>
+                <h2>🏛️ Brahmi Numerals</h2>
                 <p>{toBrahmi(number)}</p>
               </div>
-
             </div>
 
             <div className="place-value-box">
-
               <h2>📊 Indian Place Value Chart</h2>
 
               <table>
-
                 <thead>
                   <tr>
                     <th>Crore</th>
@@ -156,13 +143,10 @@ function Explorer() {
                     <td>{place.units}</td>
                   </tr>
                 </tbody>
-
               </table>
-
             </div>
           </>
         )}
-
       </div>
     </>
   );
