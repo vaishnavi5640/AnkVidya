@@ -1,52 +1,200 @@
-.learn-page{
-    padding:60px;
-    background:#FFF8E7;
-    min-height:100vh;
+.learn-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef5ff, #ffffff);
+  padding: 40px 20px 80px;
 }
 
-.learn-page h1{
-    text-align:center;
-    color:#1E3A8A;
-    font-size:46px;
+/* HERO */
+
+.learn-hero {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+  padding: 50px 20px;
 }
 
-.intro{
-    text-align:center;
-    margin-top:20px;
-    font-size:20px;
-    color:#555;
+.learn-hero h1 {
+  font-size: 52px;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+}
+
+.learn-hero p {
+  font-size: 20px;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* SECTION TITLE */
+
+.section-title {
+  text-align: center;
+  color: #1e3a8a;
+  font-size: 38px;
+  margin: 60px 0 35px;
+}
+
+/* TIMELINE */
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.timeline-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  transition: .35s;
+}
+
+.timeline-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+}
+
+.year {
+  display: inline-block;
+  background: #1e3a8a;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.timeline-card h3 {
+  color: #1e3a8a;
+  margin-bottom: 15px;
+  font-size: 26px;
+}
+
+.symbol {
+  font-size: 34px;
+  color: #ff6b00;
+  margin: 18px 0;
+  font-weight: bold;
+}
+
+.timeline-card p {
+  color: #555;
+  line-height: 1.8;
+}
+
+/* MATHEMATICIANS */
+
+.mathematician-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.mathematician-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  transition: .35s;
+}
+
+.mathematician-card:hover {
+  transform: translateY(-10px);
+}
+
+.mathematician-card h3 {
+  color: #1e3a8a;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.mathematician-card span {
+  display: inline-block;
+  color: #ff6b00;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+.mathematician-card p {
+  color: #555;
+  line-height: 1.7;
+}
+
+/* FACTS */
+
+.did-you-know {
+  max-width: 1100px;
+  margin: 70px auto;
+}
+
+.did-you-know h2 {
+  text-align: center;
+  color: #1e3a8a;
+  margin-bottom: 35px;
+  font-size: 38px;
+}
+
+.fact-box {
+  background: white;
+  border-left: 8px solid #ff9800;
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  transition: .3s;
+}
+
+.fact-box:hover {
+  transform: translateX(10px);
+}
+
+.fact-box p {
+  font-size: 19px;
+  color: #444;
+  line-height: 1.8;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:768px){
+
+.learn-hero h1{
+font-size:38px;
+}
+
+.learn-hero p{
+font-size:17px;
+}
+
+.section-title{
+font-size:30px;
 }
 
 .timeline{
-    margin-top:50px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
+grid-template-columns:1fr;
 }
 
-.timeline-card{
-    background:white;
-    border-left:6px solid #FF6B00;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-    transition:.3s;
+.mathematician-grid{
+grid-template-columns:1fr;
 }
 
-.timeline-card:hover{
-    transform:translateY(-8px);
+.timeline-card,
+.mathematician-card{
+padding:25px;
 }
 
-.timeline-card h2{
-    color:#FF6B00;
-    margin-bottom:10px;
+.symbol{
+font-size:28px;
 }
 
-.timeline-card h3{
-    color:#1E3A8A;
-    margin-bottom:10px;
+.fact-box p{
+font-size:17px;
 }
 
-.timeline-card p{
-    line-height:1.6;
 }

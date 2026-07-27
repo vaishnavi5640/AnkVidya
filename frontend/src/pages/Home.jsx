@@ -13,34 +13,36 @@ function Home() {
 
           <div className="hero-text">
 
-            <span className="tag">
+            <span className="hero-tag">
               🇮🇳 Indian Knowledge System
             </span>
 
             <h1>AnkVidya</h1>
 
             <h2>
-              Discover the Beauty of the Ancient Indian Number System
+              Discover India's Mathematical Heritage
             </h2>
 
             <p>
-              Learn the evolution of Indian numerals through interactive lessons,
-              AI guidance, quizzes, mathematicians, and engaging activities.
-              Explore how India shaped the world's understanding of numbers.
+              Explore the fascinating journey of the Indian Numeral System,
+              learn from legendary mathematicians, convert numbers instantly,
+              practice through quizzes and ask questions with your AI Tutor.
             </p>
 
             <div className="button-group">
+
               <Link to="/learn">
                 <button className="primary-btn">
-                  🚀 Start Learning
+                  📚 Start Learning
                 </button>
               </Link>
 
-              <Link to="/explorer">
+              <Link to="/aitutor">
                 <button className="secondary-btn">
-                  🔢 Explore Numbers
+                  🤖 AI Tutor
                 </button>
               </Link>
+
             </div>
 
           </div>
@@ -48,74 +50,125 @@ function Home() {
           <div className="hero-image">
 
             <img
-              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900"
-              alt="Learning"
+              src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=700"
+              alt="Ancient Mathematics"
             />
 
           </div>
 
         </div>
 
+        <section className="stats">
+
+          <div className="stat-card">
+            <h2>2000+</h2>
+            <p>Years of Mathematical Heritage</p>
+          </div>
+
+          <div className="stat-card">
+            <h2>4</h2>
+            <p>Interactive Learning Modules</p>
+          </div>
+
+          <div className="stat-card">
+            <h2>AI</h2>
+            <p>Smart Tutor Assistance</p>
+          </div>
+
+          <div className="stat-card">
+            <h2>∞</h2>
+            <p>Knowledge to Explore</p>
+          </div>
+
+        </section>
+
         <section className="features">
 
-          <div className="card">
-            <div className="icon">📚</div>
+          <h2 className="section-title">
+            Why Choose AnkVidya?
+          </h2>
 
-            <h3>Learn</h3>
+          <div className="feature-grid">
 
-            <p>
-              Understand the origin and evolution of the Indian Number System.
-            </p>
+            <div className="feature-card">
+              <h3>📖 Learn</h3>
+              <p>
+                Study the complete history of the Indian Number System.
+              </p>
+            </div>
+
+            <div className="feature-card">
+              <h3>🔢 Number Explorer</h3>
+              <p>
+                Convert numbers into Indian, International, Devanagari and Brahmi formats.
+              </p>
+            </div>
+
+            <div className="feature-card">
+              <h3>👨‍🏫 Great Mathematicians</h3>
+              <p>
+                Learn about Aryabhata, Brahmagupta, Bhaskara II and Pingala.
+              </p>
+            </div>
+
+            <div className="feature-card">
+              <h3>🧠 Quiz</h3>
+              <p>
+                Test your understanding through interactive quizzes.
+              </p>
+            </div>
+
+            <div className="feature-card">
+              <h3>🤖 AI Tutor</h3>
+              <p>
+                Ask doubts anytime and receive instant explanations.
+              </p>
+            </div>
+
+            <div className="feature-card">
+              <h3>🏛️ Indian Knowledge System</h3>
+              <p>
+                Experience India's ancient mathematical brilliance in a modern way.
+              </p>
+            </div>
+
           </div>
 
-          <div className="card">
-            <div className="icon">🔢</div>
+        </section>
 
-            <h3>Number Explorer</h3>
+        <section className="timeline-preview">
 
-            <p>
-              Convert numbers into Indian, International, Brahmi and Devanagari formats.
-            </p>
-          </div>
+          <h2 className="section-title">
+            Journey Through Time
+          </h2>
 
-          <div className="card">
-            <div className="icon">🧠</div>
+          <div className="timeline-line">
 
-            <h3>Quiz</h3>
+            <div className="time-box">
+              <h3>300 BCE</h3>
+              <p>Brahmi Numerals</p>
+            </div>
 
-            <p>
-              Test your knowledge with interactive quizzes and earn a certificate.
-            </p>
-          </div>
+            <div className="time-box">
+              <h3>499 CE</h3>
+              <p>Aryabhata</p>
+            </div>
 
-          <div className="card">
-            <div className="icon">🤖</div>
+            <div className="time-box">
+              <h3>628 CE</h3>
+              <p>Brahmagupta</p>
+            </div>
 
-            <h3>AI Tutor</h3>
+            <div className="time-box">
+              <h3>1114 CE</h3>
+              <p>Bhaskara II</p>
+            </div>
 
-            <p>
-              Ask questions about Indian mathematics and receive instant guidance.
-            </p>
-          </div>
+            <div className="time-box">
+              <h3>Today</h3>
+              <p>Modern Indian Number System</p>
+            </div>
 
-          <div className="card">
-            <div className="icon">👨‍🏫</div>
-
-            <h3>Great Mathematicians</h3>
-
-            <p>
-              Learn about Aryabhata, Brahmagupta, Bhaskara II and other pioneers.
-            </p>
-          </div>
-
-          <div className="card">
-            <div className="icon">🏛️</div>
-
-            <h3>Indian Heritage</h3>
-
-            <p>
-              Discover how India's mathematical innovations influenced the world.
-            </p>
           </div>
 
         </section>

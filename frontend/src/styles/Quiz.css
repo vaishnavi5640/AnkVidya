@@ -123,6 +123,298 @@
 
 .restart-btn:hover {
   background: #ff6b00;
+}.quiz-container {
+  min-height: 100vh;
+  background: #fff7e6;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+
+/* Heading */
+
+.quiz-container h1 {
+  color: #8b4513;
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+
+/* Progress */
+
+.progress {
+  font-size: 20px;
+  font-weight: bold;
+  color: #7b2d26;
+  margin-bottom: 25px;
+}
+
+
+
+/* Cards */
+
+.quiz-card,
+.result-card {
+
+  max-width: 800px;
+
+  margin: auto;
+
+  background: white;
+
+  padding: 35px;
+
+  border-radius: 20px;
+
+  box-shadow:
+  0 8px 20px rgba(0,0,0,0.12);
+
+  border-top: 6px solid #d97706;
+
+}
+
+
+
+/* Question */
+
+.quiz-card h2 {
+
+  color: #333;
+
+  font-size: 32px;
+
+  margin-bottom: 30px;
+
+  line-height: 1.5;
+
+}
+
+
+
+/* Options */
+
+.option-btn {
+
+  width:100%;
+
+  padding:18px;
+
+  margin:15px 0;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:#8b4513;
+
+  color:white;
+
+  font-size:22px;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+}
+
+
+.option-btn:hover {
+
+  background:#d97706;
+
+  transform:translateY(-3px);
+
+}
+
+
+
+/* Result */
+
+.result-card h1 {
+
+  color:#8b4513;
+
+}
+
+
+.result-card h2 {
+
+  color:#333;
+
+}
+
+
+
+.excellent {
+
+  color:green;
+
+  font-size:22px;
+
+  font-weight:bold;
+
+}
+
+
+
+.good {
+
+  color:#d97706;
+
+  font-size:22px;
+
+  font-weight:bold;
+
+}
+
+
+
+.retry {
+
+  color:#b91c1c;
+
+  font-size:22px;
+
+  font-weight:bold;
+
+}
+
+
+
+/* Name Input */
+
+.name-input {
+
+  width:320px;
+
+  max-width:90%;
+
+  padding:14px;
+
+  margin:25px 0;
+
+  border:2px solid #d97706;
+
+  border-radius:10px;
+
+  font-size:18px;
+
+  color:#111827;
+
+  text-align:center;
+
+}
+
+
+.name-input::placeholder {
+
+  color:#777;
+
+}
+
+
+
+/* Certificate */
+
+.certificate {
+
+  margin-top:30px;
+
+  padding:30px;
+
+  border:5px solid #d97706;
+
+  border-radius:20px;
+
+  background:#fff8dc;
+
+}
+
+
+
+.certificate h1 {
+
+  color:#8b4513;
+
+  margin:15px 0;
+
+}
+
+
+
+.certificate h2 {
+
+  color:#d97706;
+
+}
+
+
+
+.certificate p {
+
+  font-size:18px;
+
+  color:#333;
+
+}
+
+
+
+/* Restart */
+
+.restart-btn {
+
+  margin-top:25px;
+
+  padding:15px 35px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:#8b4513;
+
+  color:white;
+
+  font-size:20px;
+
+  cursor:pointer;
+
+}
+
+
+.restart-btn:hover {
+
+  background:#d97706;
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:768px){
+
+  .quiz-container h1{
+
+    font-size:34px;
+
+  }
+
+
+  .quiz-card h2{
+
+    font-size:24px;
+
+  }
+
+
+  .option-btn{
+
+    font-size:18px;
+
+  }
+
 }
 
 @media (max-width: 768px) {
