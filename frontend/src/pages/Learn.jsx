@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import "../styles/Learn.css";
 
@@ -217,7 +218,7 @@ function Learn() {
 
 </section>
       </div>
-
+<Footer />
     </>
   );
 }

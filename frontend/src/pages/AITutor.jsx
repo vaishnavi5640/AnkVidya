@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/AITutor.css";
@@ -85,7 +86,7 @@ function AITutor() {
         </div>
 
       </div>
-
+<Footer />
     </>
   );
 }

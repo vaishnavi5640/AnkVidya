@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import "../styles/Home.css";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
@@ -308,6 +309,7 @@ const checkAnswer = () => {
 
 </section>
       </section>
+      <Footer />
     </>
   );
 }
