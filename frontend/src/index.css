@@ -109,3 +109,39 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+body.dark-mode{
+    background:#121212;
+    color:white;
+}
+
+body.dark-mode .navbar{
+    background:#1f1f1f;
+}
+
+body.dark-mode .footer{
+    background:#0d0d0d;
+}
+
+body.dark-mode .quiz-card,
+body.dark-mode .game-card,
+body.dark-mode .chat-box,
+body.dark-mode .fact-card,
+body.dark-mode .timeline-card,
+body.dark-mode .math-card,
+body.dark-mode .stat-card,
+body.dark-mode .why-card,
+body.dark-mode .result-card,
+body.dark-mode .suggestions{
+    background:#222;
+    color:white;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3{
+    color:#FFD54F;
+}
+
+body.dark-mode p{
+    color:#ddd;
+}

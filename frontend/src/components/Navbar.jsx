@@ -1,8 +1,18 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import "../styles/Navbar.css";
 import logo from "../images/logo/logo.png";
 
 function Navbar() {
+  const [darkMode, setDarkMode] = useState(false);
+
+useEffect(() => {
+  if (darkMode) {
+    document.body.classList.add("dark-mode");
+  } else {
+    document.body.classList.remove("dark-mode");
+  }
+}, [darkMode]);
   return (
     <nav className="navbar">
 
@@ -26,6 +36,12 @@ function Navbar() {
         <Link to="/mathematicians">👨‍🏫 Mathematicians</Link>
         <Link to="/quiz">🧠 Quiz</Link>
         <Link to="/aitutor">🤖 AI Tutor</Link>
+        <button
+  className="dark-btn"
+  onClick={() => setDarkMode(!darkMode)}
+>
+  {darkMode ? "☀ Light" : "🌙 Dark"}
+</button>
       </div>
 
     </nav>
