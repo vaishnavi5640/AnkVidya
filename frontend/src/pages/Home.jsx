@@ -1,8 +1,34 @@
 import "../styles/Home.css";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
 function Home() {
+  const facts = [
+  "Zero as a number was first explained by Brahmagupta.",
+  "The Indian Number System uses Lakh and Crore instead of Million and Billion.",
+  "Aryabhata calculated an accurate approximation of π in the 5th century.",
+  "Pingala described binary-like concepts centuries before computers.",
+  "The decimal place-value system originated in ancient India.",
+  "Indian numerals spread to the world through Arab scholars.",
+];
+
+const [fact, setFact] = useState(facts[0]);
+
+const randomFact = () => {
+  const index = Math.floor(Math.random() * facts.length);
+  setFact(facts[index]);
+};
+const [answer, setAnswer] = useState("");
+const [message, setMessage] = useState("");
+
+const checkAnswer = () => {
+  if (answer.trim() === "100000") {
+    setMessage("✅ Correct! 1 Lakh = 100000");
+  } else {
+    setMessage("❌ Try Again!");
+  }
+};
   return (
     <>
       <Navbar />
@@ -236,7 +262,51 @@ function Home() {
   </div>
 
 </section>
+<section className="fact-section">
 
+  <h2>💡 Did You Know?</h2>
+
+  <div className="fact-display">
+
+    <p>{fact}</p>
+
+    <button onClick={randomFact}>
+      Show Another Fact
+    </button>
+
+  </div>
+
+</section>
+<section className="challenge-section">
+
+  <h2>🏆 Today's Challenge</h2>
+
+  <div className="challenge-card">
+
+    <h3>
+      How many digits are there in <strong>1 Lakh</strong>?
+    </h3>
+
+    <input
+      type="text"
+      placeholder="Enter your answer"
+      value={answer}
+      onChange={(e) => setAnswer(e.target.value)}
+    />
+
+    <button onClick={checkAnswer}>
+      Check Answer
+    </button>
+
+    {message && (
+      <p className="challenge-result">
+        {message}
+      </p>
+    )}
+
+  </div>
+
+</section>
       </section>
     </>
   );

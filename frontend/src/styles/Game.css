@@ -1,0 +1,104 @@
+.game-page{
+    min-height:100vh;
+    padding:60px 20px;
+    background:linear-gradient(135deg,#EEF5FF,#F8FBFF);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.game-page h1{
+    color:#1E3A8A;
+    font-size:48px;
+    margin-bottom:10px;
+}
+
+.game-subtitle{
+    color:#555;
+    font-size:20px;
+    margin-bottom:40px;
+}
+
+.game-card{
+    background:white;
+    width:100%;
+    max-width:650px;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.10);
+    text-align:center;
+}
+
+.game-card h2{
+    font-size:46px;
+    color:#F59E0B;
+    margin-bottom:35px;
+}
+
+.game-card input{
+    width:80%;
+    padding:15px;
+    border:2px solid #dcdcdc;
+    border-radius:10px;
+    font-size:18px;
+    margin-bottom:25px;
+    outline:none;
+}
+
+.game-card input:focus{
+    border-color:#1E3A8A;
+}
+
+.game-card button{
+    background:#1E3A8A;
+    color:white;
+    border:none;
+    padding:14px 35px;
+    font-size:18px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.game-card button:hover{
+    background:#163172;
+    transform:translateY(-3px);
+}
+
+.result{
+    margin-top:25px;
+    font-size:22px;
+    font-weight:bold;
+    color:#1E3A8A;
+}
+
+.game-card h3{
+    margin-top:30px;
+    color:#0F766E;
+    font-size:28px;
+}
+
+@media(max-width:768px){
+
+.game-page h1{
+    font-size:36px;
+}
+
+.game-card{
+    padding:25px;
+}
+
+.game-card h2{
+    font-size:34px;
+}
+
+.game-card input{
+    width:100%;
+}
+
+.game-card button{
+    width:100%;
+    margin-top:10px;
+}
+
+}

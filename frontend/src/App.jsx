@@ -6,6 +6,7 @@ import Explorer from "./pages/Explorer";
 import Mathematicians from "./pages/Mathematicians";
 import Quiz from "./pages/Quiz";
 import AITutor from "./pages/AITutor";
+import Game from "./pages/Game";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/mathematicians" element={<Mathematicians />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/aitutor" element={<AITutor />} />
+        <Route path="/game" element={<Game />} />
       </Routes>
     </BrowserRouter>
   );

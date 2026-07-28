@@ -311,3 +311,84 @@ font-size:32px;
     color:#555;
     line-height:1.7;
 }
+.fact-section{
+    max-width:900px;
+    margin:90px auto;
+    text-align:center;
+}
+
+.fact-display{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.fact-display p{
+    font-size:22px;
+    color:#1E3A8A;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.fact-display button{
+    background:#1E3A8A;
+    color:white;
+    border:none;
+    padding:14px 30px;
+    border-radius:10px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.fact-display button:hover{
+    background:#163172;
+}
+.challenge-section{
+    max-width:900px;
+    margin:90px auto;
+    text-align:center;
+}
+
+.challenge-card{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.challenge-card h3{
+    color:#1E3A8A;
+    margin-bottom:25px;
+}
+
+.challenge-card input{
+    width:280px;
+    padding:14px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    font-size:17px;
+}
+
+.challenge-card button{
+    margin-left:15px;
+    padding:14px 30px;
+    border:none;
+    border-radius:10px;
+    background:#1E3A8A;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+}
+
+.challenge-card button:hover{
+    background:#163172;
+}
+
+.challenge-result{
+    margin-top:25px;
+    font-size:22px;
+    font-weight:bold;
+    color:#1E3A8A;
+}
