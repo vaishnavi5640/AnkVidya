@@ -112,3 +112,22 @@
 }
 
 }
+.quick-buttons{
+display:grid;
+gap:15px;
+margin-top:20px;
+}
+
+.quick-buttons button{
+padding:14px;
+background:#1E3A8A;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+}
+
+.quick-buttons button:hover{
+background:#163172;
+}

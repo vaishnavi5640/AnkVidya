@@ -95,9 +95,20 @@ function Quiz() {
 
       <div className="quiz-card">
 
-        <h2>
-          Question {current+1} / {questions.length}
-        </h2>
+        <div className="progress-bar">
+
+  <div
+    className="progress-fill"
+    style={{
+      width: `${((current + 1) / questions.length) * 100}%`,
+    }}
+  ></div>
+
+</div>
+
+<h2>
+  Question {current + 1} / {questions.length}
+</h2>
 
         <h3>
           {questions[current].question}
@@ -125,8 +136,16 @@ function Quiz() {
         <h2>🎉 Quiz Completed</h2>
 
         <h1>
-          {score} / {questions.length}
-        </h1>
+  {score} / {questions.length}
+</h1>
+
+<h2>
+  {score === questions.length
+    ? "🥇 Gold Medal"
+    : score >= 3
+    ? "🥈 Silver Medal"
+    : "🥉 Bronze Medal"}
+</h2>
 
         <button onClick={restart}>
           Play Again

@@ -75,7 +75,37 @@ function AITutor() {
 
           <h3>Suggested Questions</h3>
 
-          <ul>
+          <div className="quick-buttons">
+
+<button onClick={()=>{
+setQuestion("Who invented Zero?");
+setAnswer("");
+}}>
+Who invented Zero?
+</button>
+
+<button onClick={()=>{
+setQuestion("What is Lakh?");
+setAnswer("");
+}}>
+What is Lakh?
+</button>
+
+<button onClick={()=>{
+setQuestion("Who was Aryabhata?");
+setAnswer("");
+}}>
+Who was Aryabhata?
+</button>
+
+<button onClick={()=>{
+setQuestion("Who was Brahmagupta?");
+setAnswer("");
+}}>
+Who was Brahmagupta?
+</button>
+
+</div>
             <li>Who invented Zero?</li>
             <li>What is Lakh?</li>
             <li>What is Crore?</li>

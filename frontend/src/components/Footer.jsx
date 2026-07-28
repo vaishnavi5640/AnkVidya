@@ -32,6 +32,11 @@ function Footer() {
           <p>Indian Knowledge System (IKS)</p>
           <p>React + Vite</p>
           <p>Educational Project</p>
+          <h3>Connect</h3>
+
+<p>📧 vaishnavi5640@tsecmumbai.in</p>
+
+<p>💻 GitHub: vaishnavi5640</p>
         </div>
 
       </div>
