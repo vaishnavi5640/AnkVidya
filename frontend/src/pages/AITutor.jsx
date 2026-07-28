@@ -1,38 +1,80 @@
-import Footer from "../components/Footer";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import "../styles/AITutor.css";
 
 function AITutor() {
+
   const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
+  const [messages, setMessages] = useState([
+    {
+      type: "bot",
+      text: "👋 Hello! I am AnkVidya AI Tutor. Ask me about Indian Mathematics."
+    }
+  ]);
+
 
   const replies = {
     "who invented zero":
       "Zero was mathematically explained by Brahmagupta in the 7th century.",
+
     "what is lakh":
       "1 Lakh = 100,000.",
+
     "what is crore":
       "1 Crore = 10,000,000.",
+
     "who was aryabhata":
-      "Aryabhata was a famous Indian mathematician and astronomer who wrote the Aryabhatiya.",
+      "Aryabhata was a famous Indian mathematician and astronomer. He wrote Aryabhatiya.",
+
     "who was brahmagupta":
-      "Brahmagupta introduced rules for zero and negative numbers.",
+      "Brahmagupta explained rules for zero and negative numbers.",
+
     "what is indian number system":
-      "The Indian Number System uses Ones, Tens, Hundreds, Thousands, Lakhs and Crores.",
+      "The Indian Number System uses Ones, Tens, Hundreds, Thousands, Lakhs and Crores."
   };
+
 
   const askQuestion = () => {
-    const q = question.toLowerCase().trim();
 
-    if (replies[q]) {
-      setAnswer(replies[q]);
-    } else {
-      setAnswer(
-        "Sorry! I don't know that yet. Try asking about Zero, Lakh, Crore, Aryabhata or Brahmagupta."
-      );
-    }
+    if(question.trim()==="") return;
+
+
+    const userMessage = {
+      type:"user",
+      text:question
+    };
+
+
+    const key = question.toLowerCase().trim();
+
+
+    const botMessage = {
+      type:"bot",
+      text:
+      replies[key] ||
+      "Sorry! I don't know this yet. Try asking about Zero, Lakh, Crore, Aryabhata or Brahmagupta."
+    };
+
+
+    setMessages([
+      ...messages,
+      userMessage,
+      botMessage
+    ]);
+
+
+    setQuestion("");
+
   };
+
+
+  const quickAsk = (text)=>{
+
+    setQuestion(text);
+
+  };
+
 
   return (
     <>
@@ -43,82 +85,92 @@ function AITutor() {
         <h1>🤖 AI Tutor</h1>
 
         <p>
-          Ask anything about the Indian Number System.
+          Learn Indian Mathematics with your personal AI guide.
         </p>
+
 
         <div className="chat-box">
 
-          <div className="bot-message">
-            👋 Hello! Ask me something about Indian Mathematics.
+
+          <div className="messages">
+
+            {messages.map((msg,index)=>(
+
+              <div
+                key={index}
+                className={
+                  msg.type==="user"
+                  ? "user-message"
+                  : "bot-message"
+                }
+              >
+
+                {msg.text}
+
+              </div>
+
+            ))}
+
+
+          </div>
+                    <div className="quick-buttons">
+
+            <button onClick={()=>quickAsk("who invented zero")}>
+              Who invented Zero?
+            </button>
+
+            <button onClick={()=>quickAsk("what is lakh")}>
+              What is Lakh?
+            </button>
+
+            <button onClick={()=>quickAsk("what is crore")}>
+              What is Crore?
+            </button>
+
+            <button onClick={()=>quickAsk("who was aryabhata")}>
+              Aryabhata
+            </button>
+
+            <button onClick={()=>quickAsk("who was brahmagupta")}>
+              Brahmagupta
+            </button>
+
           </div>
 
-          {answer && (
-            <div className="bot-reply">
-              🤖 {answer}
-            </div>
-          )}
 
-          <input
-            type="text"
-            placeholder="Example: Who invented Zero?"
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
-          />
+          <div className="input-area">
 
-          <button onClick={askQuestion}>
-            Ask
-          </button>
+            <input
+              type="text"
+              placeholder="Ask about Indian Mathematics..."
+              value={question}
+              onChange={(e)=>setQuestion(e.target.value)}
+              onKeyDown={(e)=>{
+                if(e.key==="Enter"){
+                  askQuestion();
+                }
+              }}
+            />
 
-        </div>
 
-        <div className="suggestions">
+            <button onClick={askQuestion}>
+              Ask
+            </button>
 
-          <h3>Suggested Questions</h3>
+          </div>
 
-          <div className="quick-buttons">
-
-<button onClick={()=>{
-setQuestion("Who invented Zero?");
-setAnswer("");
-}}>
-Who invented Zero?
-</button>
-
-<button onClick={()=>{
-setQuestion("What is Lakh?");
-setAnswer("");
-}}>
-What is Lakh?
-</button>
-
-<button onClick={()=>{
-setQuestion("Who was Aryabhata?");
-setAnswer("");
-}}>
-Who was Aryabhata?
-</button>
-
-<button onClick={()=>{
-setQuestion("Who was Brahmagupta?");
-setAnswer("");
-}}>
-Who was Brahmagupta?
-</button>
-
-</div>
-            <li>Who invented Zero?</li>
-            <li>What is Lakh?</li>
-            <li>What is Crore?</li>
-            <li>Who was Aryabhata?</li>
-            <li>Who was Brahmagupta?</li>
-          </ul>
 
         </div>
+
 
       </div>
-<Footer />
+
+
+      <Footer />
+
     </>
   );
 }
+
 
 export default AITutor;
