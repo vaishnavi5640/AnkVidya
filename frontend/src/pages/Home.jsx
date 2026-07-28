@@ -1,38 +1,84 @@
+const [showWelcome, setShowWelcome] = useState(true);
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/Home.css";
-import { useState } from "react";
-import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
 
 function Home() {
+
   const facts = [
-  "Zero as a number was first explained by Brahmagupta.",
-  "The Indian Number System uses Lakh and Crore instead of Million and Billion.",
-  "Aryabhata calculated an accurate approximation of π in the 5th century.",
-  "Pingala described binary-like concepts centuries before computers.",
-  "The decimal place-value system originated in ancient India.",
-  "Indian numerals spread to the world through Arab scholars.",
-];
+    "Zero as a number was first explained by Brahmagupta.",
+    "The Indian Number System uses Lakh and Crore instead of Million and Billion.",
+    "Aryabhata calculated an accurate approximation of π in the 5th century.",
+    "Pingala described binary-like concepts centuries before computers.",
+    "The decimal place-value system originated in ancient India.",
+    "Indian numerals spread to the world through Arab scholars."
+  ];
 
-const [fact, setFact] = useState(facts[0]);
+  const [fact, setFact] = useState(facts[0]);
+  const [answer, setAnswer] = useState("");
+  const [message, setMessage] = useState("");
 
-const randomFact = () => {
-  const index = Math.floor(Math.random() * facts.length);
-  setFact(facts[index]);
-};
-const [answer, setAnswer] = useState("");
-const [message, setMessage] = useState("");
+  const [students, setStudents] = useState(0);
+  const [lessons, setLessons] = useState(0);
+  const [quiz, setQuiz] = useState(0);
 
-const checkAnswer = () => {
-  if (answer.trim() === "100000") {
-    setMessage("✅ Correct! 1 Lakh = 100000");
-  } else {
-    setMessage("❌ Try Again!");
-  }
-};
+  useEffect(() => {
+
+    let s = 0;
+    let l = 0;
+    let q = 0;
+
+    const timer = setInterval(() => {
+
+      if (s < 5000) setStudents(++s);
+
+      if (l < 4) setLessons(++l);
+
+      if (q < 10) setQuiz(++q);
+
+    }, 1);
+
+    return () => clearInterval(timer);
+
+  }, []);
+
+  const randomFact = () => {
+    const index = Math.floor(Math.random() * facts.length);
+    setFact(facts[index]);
+  };
+
+  const checkAnswer = () => {
+
+    if (answer.trim() === "100000") {
+      setMessage("✅ Correct! 1 Lakh = 100000");
+    } else {
+      setMessage("❌ Try Again!");
+    }
+
+  };
+
   return (
     <>
       <Navbar />
+      {showWelcome && (
+
+<div className="welcome-popup">
+
+<h2>🙏 Welcome to AnkVidya</h2>
+
+<p>
+Explore India's rich mathematical heritage through interactive learning.
+</p>
+
+<button onClick={()=>setShowWelcome(false)}>
+Start Learning
+</button>
+
+</div>
+
+)}
 
       <section className="home">
 
@@ -88,23 +134,23 @@ const checkAnswer = () => {
         <section className="stats">
 
           <div className="stat-card">
-            <h2>2000+</h2>
+            <h2>{students}+</h2>
             <p>Years of Mathematical Heritage</p>
           </div>
 
           <div className="stat-card">
-            <h2>4</h2>
+            <h2>{lessons}</h2>
+            <p>Legendary Indian Mathematicians</p>
+          </div>
+
+          <div className="stat-card">
+            <h2>{quiz}+</h2>
             <p>Interactive Learning Modules</p>
           </div>
 
           <div className="stat-card">
-            <h2>AI</h2>
-            <p>Smart Tutor Assistance</p>
-          </div>
-
-          <div className="stat-card">
-            <h2>∞</h2>
-            <p>Knowledge to Explore</p>
+            <h2>100%</h2>
+            <p>Free Learning Experience</p>
           </div>
 
         </section>
@@ -119,44 +165,32 @@ const checkAnswer = () => {
 
             <div className="feature-card">
               <h3>📖 Learn</h3>
-              <p>
-                Study the complete history of the Indian Number System.
-              </p>
+              <p>Study the complete history of the Indian Number System.</p>
             </div>
 
             <div className="feature-card">
               <h3>🔢 Number Explorer</h3>
-              <p>
-                Convert numbers into Indian, International, Devanagari and Brahmi formats.
-              </p>
+              <p>Convert numbers into Indian, International, Devanagari and Brahmi formats.</p>
             </div>
 
             <div className="feature-card">
               <h3>👨‍🏫 Great Mathematicians</h3>
-              <p>
-                Learn about Aryabhata, Brahmagupta, Bhaskara II and Pingala.
-              </p>
+              <p>Learn about Aryabhata, Brahmagupta, Bhaskara II and Pingala.</p>
             </div>
 
             <div className="feature-card">
               <h3>🧠 Quiz</h3>
-              <p>
-                Test your understanding through interactive quizzes.
-              </p>
+              <p>Test your understanding through interactive quizzes.</p>
             </div>
 
             <div className="feature-card">
               <h3>🤖 AI Tutor</h3>
-              <p>
-                Ask doubts anytime and receive instant explanations.
-              </p>
+              <p>Ask doubts anytime and receive instant explanations.</p>
             </div>
 
             <div className="feature-card">
               <h3>🏛️ Indian Knowledge System</h3>
-              <p>
-                Experience India's ancient mathematical brilliance in a modern way.
-              </p>
+              <p>Experience India's ancient mathematical brilliance in a modern way.</p>
             </div>
 
           </div>
@@ -197,119 +231,101 @@ const checkAnswer = () => {
             </div>
 
           </div>
-          <section className="stats">
-
-  <div className="stat-card">
-    <h2>5000+</h2>
-    <p>Years of Mathematical Heritage</p>
-  </div>
-
-  <div className="stat-card">
-    <h2>4</h2>
-    <p>Legendary Indian Mathematicians</p>
-  </div>
-
-  <div className="stat-card">
-    <h2>10+</h2>
-    <p>Interactive Learning Modules</p>
-  </div>
-
-  <div className="stat-card">
-    <h2>100%</h2>
-    <p>Free Learning Experience</p>
-  </div>
-
-</section>
 
         </section>
-        <section className="why-section">
+                <section className="why-section">
 
-  <h2>✨ Why Choose AnkVidya?</h2>
+          <h2>✨ Why Choose AnkVidya?</h2>
 
-  <div className="why-grid">
+          <div className="why-grid">
 
-    <div className="why-card">
-      <div className="why-icon">📖</div>
-      <h3>Interactive Learning</h3>
-      <p>
-        Learn through engaging lessons instead of long textbooks.
-      </p>
-    </div>
+            <div className="why-card">
+              <div className="why-icon">📖</div>
+              <h3>Interactive Learning</h3>
+              <p>
+                Learn through engaging lessons instead of long textbooks.
+              </p>
+            </div>
 
-    <div className="why-card">
-      <div className="why-icon">🧠</div>
-      <h3>Fun Quizzes</h3>
-      <p>
-        Test your knowledge with exciting quizzes and instant results.
-      </p>
-    </div>
+            <div className="why-card">
+              <div className="why-icon">🧠</div>
+              <h3>Fun Quizzes</h3>
+              <p>
+                Test your knowledge with exciting quizzes and instant results.
+              </p>
+            </div>
 
-    <div className="why-card">
-      <div className="why-icon">🤖</div>
-      <h3>AI Tutor</h3>
-      <p>
-        Ask questions anytime and receive intelligent explanations.
-      </p>
-    </div>
+            <div className="why-card">
+              <div className="why-icon">🤖</div>
+              <h3>AI Tutor</h3>
+              <p>
+                Ask questions anytime and receive intelligent explanations.
+              </p>
+            </div>
 
-    <div className="why-card">
-      <div className="why-icon">🏛️</div>
-      <h3>Indian Heritage</h3>
-      <p>
-        Explore India's rich mathematical history in an enjoyable way.
-      </p>
-    </div>
+            <div className="why-card">
+              <div className="why-icon">🏛️</div>
+              <h3>Indian Heritage</h3>
+              <p>
+                Explore India's rich mathematical history in an enjoyable way.
+              </p>
+            </div>
 
-  </div>
+          </div>
 
-</section>
-<section className="fact-section">
+        </section>
 
-  <h2>💡 Did You Know?</h2>
+        <section className="fact-section">
 
-  <div className="fact-display">
+          <h2>💡 Did You Know?</h2>
 
-    <p>{fact}</p>
+          <div className="fact-display">
 
-    <button onClick={randomFact}>
-      Show Another Fact
-    </button>
+            <p>{fact}</p>
 
-  </div>
+            <button onClick={randomFact}>
+              Show Another Fact
+            </button>
 
-</section>
-<section className="challenge-section">
+          </div>
 
-  <h2>🏆 Today's Challenge</h2>
+        </section>
 
-  <div className="challenge-card">
+        <section className="challenge-section">
 
-    <h3>
-      How many digits are there in <strong>1 Lakh</strong>?
-    </h3>
+          <h2>🏆 Today's Challenge</h2>
 
-    <input
-      type="text"
-      placeholder="Enter your answer"
-      value={answer}
-      onChange={(e) => setAnswer(e.target.value)}
-    />
+          <div className="challenge-card">
 
-    <button onClick={checkAnswer}>
-      Check Answer
-    </button>
+            <h3>
+              How many digits are there in <strong>1 Lakh</strong>?
+            </h3>
 
-    {message && (
-      <p className="challenge-result">
-        {message}
-      </p>
-    )}
+            <input
+              type="text"
+              placeholder="Enter your answer"
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+            />
 
-  </div>
+            <button onClick={checkAnswer}>
+              Check Answer
+            </button>
 
-</section>
+            {message && (
+              <p className="challenge-result">
+                {message}
+              </p>
+            )}
+
+          </div>
+
+        </section>
+
       </section>
+
       <Footer />
+
     </>
   );
 }

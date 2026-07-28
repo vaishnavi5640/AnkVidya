@@ -139,6 +139,16 @@ function Quiz() {
   {score} / {questions.length}
 </h1>
 
+<div className="badge">
+
+  {score === questions.length && "🏆 Numeral Master"}
+
+  {score >= 3 && score < questions.length && "🥇 Indian Math Expert"}
+
+  {score < 3 && "📚 Keep Learning"}
+
+</div>
+
 <h2>
   {score === questions.length
     ? "🥇 Gold Medal"
