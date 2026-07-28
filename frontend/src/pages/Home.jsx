@@ -170,6 +170,29 @@ function Home() {
             </div>
 
           </div>
+          <section className="stats">
+
+  <div className="stat-card">
+    <h2>5000+</h2>
+    <p>Years of Mathematical Heritage</p>
+  </div>
+
+  <div className="stat-card">
+    <h2>4</h2>
+    <p>Legendary Indian Mathematicians</p>
+  </div>
+
+  <div className="stat-card">
+    <h2>10+</h2>
+    <p>Interactive Learning Modules</p>
+  </div>
+
+  <div className="stat-card">
+    <h2>100%</h2>
+    <p>Free Learning Experience</p>
+  </div>
+
+</section>
 
         </section>
 
