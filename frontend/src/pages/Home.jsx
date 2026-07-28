@@ -195,6 +195,47 @@ function Home() {
 </section>
 
         </section>
+        <section className="why-section">
+
+  <h2>✨ Why Choose AnkVidya?</h2>
+
+  <div className="why-grid">
+
+    <div className="why-card">
+      <div className="why-icon">📖</div>
+      <h3>Interactive Learning</h3>
+      <p>
+        Learn through engaging lessons instead of long textbooks.
+      </p>
+    </div>
+
+    <div className="why-card">
+      <div className="why-icon">🧠</div>
+      <h3>Fun Quizzes</h3>
+      <p>
+        Test your knowledge with exciting quizzes and instant results.
+      </p>
+    </div>
+
+    <div className="why-card">
+      <div className="why-icon">🤖</div>
+      <h3>AI Tutor</h3>
+      <p>
+        Ask questions anytime and receive intelligent explanations.
+      </p>
+    </div>
+
+    <div className="why-card">
+      <div className="why-icon">🏛️</div>
+      <h3>Indian Heritage</h3>
+      <p>
+        Explore India's rich mathematical history in an enjoyable way.
+      </p>
+    </div>
+
+  </div>
+
+</section>
 
       </section>
     </>
