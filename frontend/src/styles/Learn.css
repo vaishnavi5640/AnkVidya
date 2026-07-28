@@ -198,3 +198,34 @@ font-size:17px;
 }
 
 }
+.fun-facts{
+    margin-top:80px;
+}
+
+.facts-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.fact-card{
+    background:white;
+    padding:28px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.fact-card:hover{
+    transform:translateY(-8px);
+}
+
+.fact-card h3{
+    color:#1E3A8A;
+    margin-bottom:15px;
+}
+
+.fact-card p{
+    color:#555;
+    line-height:1.8;
+}

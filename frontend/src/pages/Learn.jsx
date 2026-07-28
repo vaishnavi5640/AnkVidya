@@ -173,7 +173,49 @@ function Learn() {
           </div>
 
         </section>
+<section className="fun-facts">
 
+  <h2 className="section-title">
+    🌟 Amazing Mathematical Facts
+  </h2>
+
+  <div className="facts-grid">
+
+    <div className="fact-card">
+      <h3>🔢 Zero Was Born in India</h3>
+      <p>
+        The concept of zero as a number was first explained by
+        Brahmagupta in the 7th century.
+      </p>
+    </div>
+
+    <div className="fact-card">
+      <h3>🌍 Indian Numerals Changed the World</h3>
+      <p>
+        The Hindu-Arabic numeral system became the standard number
+        system used globally today.
+      </p>
+    </div>
+
+    <div className="fact-card">
+      <h3>📐 Value of π</h3>
+      <p>
+        Aryabhata calculated an impressive approximation of π
+        centuries before modern mathematics.
+      </p>
+    </div>
+
+    <div className="fact-card">
+      <h3>💻 Binary Concept</h3>
+      <p>
+        Pingala introduced binary-like ideas nearly 2,000 years before
+        computers existed.
+      </p>
+    </div>
+
+  </div>
+
+</section>
       </div>
 
     </>
